@@ -1,0 +1,11 @@
+<template>
+  <div>
+    <v-app-bar
+      hide-on-scroll
+      app
+      color="transparent"
+      height="75"
+      >
+    </v-app-bar>
+  </div>
+</template>
