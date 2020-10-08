@@ -25,6 +25,26 @@ For any questions regarding the exam please send inquiry to <a href="mailto:elle
 <hr>
 <br>
 
+<a name="GettingStarted"></a>
+### Getting Started
+
+- Clone this repository.
+    ```
+    git clone https://github.com/ssa-academy/senior-frontend-developer-assessment.git
+    ```
+- Install package dependencies
+    ```
+    npm install
+    ```
+- Run the development server
+    ```
+    npm run serve
+    ```
+
+<br>
+<hr>
+<br>
+
 <a name="Level-1"></a>
 ### Level 1
 
@@ -59,7 +79,7 @@ For any questions regarding the exam please send inquiry to <a href="mailto:elle
 
 ##### ★ Bonus
 
-- Add page for deactivated users.
+- Add page to view deactivated users.
 
 <br>
 <hr>
@@ -107,119 +127,177 @@ For any questions regarding the exam please send inquiry to <a href="mailto:elle
 
 1. Do all steps in [Level 1](#Level-1) and [Level 2](#Level-2)
 1. Implement an API client with the following details:
-    * Base URL is `http://demo.rippl3s.com/api`
+    * Base URL is `http://oreo.rippl3s.com/api/v1`
     * Use the following credentials to retrieve a fresh token to be used in the app:
-    	- POST -login link-
-    	- `username` 
-    	- `password`
+    	- `POST` `https://oreo.rippl3s.com/api/v1/login`
+            
+            Use the following credentials:
+            ```
+            +------------+-----------+----------------------+-----------+-----------+------------+
+            | First Name | Last Name | Email                | Username  | Password  | Role       |
+            +------------+-----------+----------------------+-----------+-----------+------------+
+            | Jane       | Smith     | jane@ssagroup.com    | janesmith | Jane@8799 | Examinee   |
+            +------------+-----------+----------------------+-----------+-----------+------------+
+            ```
+
+            Request:
+            ```json
+            {
+                "username": "janesmith",
+                "password": "Jane@8799"
+            }
+            ```
+            
+            Response:
+
+            ```json
+            {
+                "user": {
+                    "id": 1,
+                    "prefixname": "Dr.",
+                    "firstname": "Jane",
+                    "middlename": "Stark",
+                    "lastname": "Smith",
+                    "suffixname": null,
+                    "username": "janesmith",
+                    "email": "jane@ssagroup.com",
+                    "photo": "data:image/png;base64,<hash>",
+                    "type": "superadmin",
+                    "email_verified_at": null,
+                    "created_at": "2020-10-08 09:36:29",
+                    "updated_at": "2020-10-08 10:15:21",
+                    "deleted_at": null,
+                    "avatar": "data:image/png;base64,<hash>",
+                    "birthday": null,
+                    "created": "45 minutes ago",
+                    "deleted": "",
+                    "details": { ... },
+                    "details:common": [ ... ],
+                    "details:others": [ ... ],
+                    "displayname": "Jane S. Smith",
+                    "is:superadmin": true,
+                    "modified": "6 minutes ago",
+                    "permissions": [ ... ],
+                    "role": "Examinee",
+                    "roles": [
+                        5
+                    ]
+                },
+                "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjhkYzc4MmQ3NzU5YWI4MjM2ZTFkOGU4MGIxZTM4ZWJmODk0YmUzYmZhZjU3NWMxMWZiYTc0M2I2ZWY4ZmE2YmJjZjliNmQ3Mjg0ZjVhYTc4In0.eyJhdWQiOiIxIiwianRpIjoiOGRjNzgyZDc3NTlhYjgyMzZlMWQ4ZTgwYjFlMzhlYmY4OTRiZTNiZmFmNTc1YzExZmJhNzQzYjZlZjhmYTZiYmNmOWI2ZDcyODRmNWFhNzgiLCJpYXQiOjE2MDIxNTI1MDQsIm5iZiI6MTYwMjE1MjUwNCwiZXhwIjoxNjMzNjg4NTA0LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.TktHs1otSWTmEClasZCTML8DrFqX3NKk63rwz3AKjN92nbsyKoWlq_RJmQBGkdy-RAsMQ7lkKdMo-2Fr60WJ9ILTDja5-4p3lMcgTHVImmiI1Azm4XKea7tL56o9FYITXY7pmOZSaeWoT_mtxhZOgnC9V0lNyHWCoZJnP5mpQVhyMrsDxadKw-PUIuQ6lTZip5UIX_DgPpOPwWcLOvbY-LQ7hK3DG9cTgYPb9WgRwKXc59Lv-K_XOcLwY73eeMrutBfbbv9tcdw6zrYvEMChCM_QDnLSNf-ccySUZyQwFEmC8WuksIepN-tJPOQXFlX41ON_Y4qrUpalPWpgQwGGOGyCH0Tz1GaeIYhTeoVlyhy9OUvqdtcwFpjeZvb_9oL5vn9Ua7mNTa2kaeWEJgQ4p8TbWNNgoH24SNCGj_TCPyNvQspoUGOrhvJ5686mw_8vEyT3ETDqgFVKVl53JOzJO5v654aRQh9iYToQvzBnjswySuJ_xbiLk4GM4jLuA1lc9SYoqwwhFYC6aSsgedMInmTQM8_-k-veDajI-13y-TSZHjdtubertoy4rwXgAFgvpCMv9lW17SrER_vfUXDv07hIxumodw0HlUGfqT-b7sxhV-CUb8MqfhIx26fqyLALluks_HRYGSZd5rlw6ayJVkMqJp6fP5BFVYR6rNW3R0I"
+            }
+            ```
+<br>
+<br>
+
 1. Implement the following API:
     1. Create new users:
-        * Request: `POST `http://demo.rippl3s.com/api/v1/test/users`
-        * Request Body:
+        * `POST` `https://oreo.rippl3s.com/api/v1/test/users`
+        * Request:
+            ```json
+            {
+                "firstname": "Angelina",
+                "lastname": "Jolie",
+                "username": "angel",
+                "email": "angelina@demo.io",
+                "password": "Angel@1000",
+                "photo": <UploadedFile> or NULL
+            }
             ```
-                {
-                    "firstname": "Jane",
-                    "lastname": "Smith",
-                    "username": "jane",
-                    "email": "jane@ssagroup.com"
-                    "password": "Demo@1000"
-                    "photo": "Demo@1000"
+        * Response:
+            ```json
+            {
+                "data": {
+                    "prefixname": null,
+                    "firstname": "Angelina",
+                    "middlename": null,
+                    "lastname": "Jolie",
+                    "suffixname": null,
+                    "username": "angel",
+                    "email": "angel@demo.io",
+                    "photo": null,
+                    "type": "test",
+                    "updated_at": "2020-10-08 10:58:00",
+                    "created_at": "2020-10-08 10:58:00",
+                    "id": 4,
+                    "avatar": "data:image/png;base64,<hash>",
+                    "birthday": null,
+                    "created": "1 second ago",
+                    "deleted": "",
+                    "displayname": "Angelina  Jolie",
+                    "modified": "1 second ago",
+                    "role": ""
                 }
+            }
             ```
-        * Response: `HTTP 201`
-        * Response Body: Note ignore permission, roles, groups and organisation
-            ```
-                {
-                    "name": "jane@ssagroup.com",
-                    "permissions": [],
-                    "firstName": "Jane",
-                    "lastName": "Smith",
-                    "email": "jane.smith@ssagroup.com",
-                    "password": null,
-                    "roles": [],
-                    "groups": [],
-                    "id": 79,
-                    "organisation": null
-                }
-            ```
+    <br><br>
     1. Update existing users:
-        * Request: `PUT http://authentication-service.jx-ssagroup-authentication-service-pr-15.ssagroup.com/api/users/{id}`
-        * Request Body:
+        * `PUT` `https://oreo.rippl3s.com/api/v1/test/users/${id}`
+        * Request:
+            ```json
+            {
+                "firstname": "Angelina",
+                "lastname": "Jolie",
+                "username": "angelina",
+                "email": "angelina@demo.io",
+                "password": "Angelina@1000",
+                "photo": null
+            }
             ```
-                {
-                    "name": "jane.smith@ssagroup.com",
-                    "firstName": "Jane",
-                    "lastName": "Smith",
-                    "email": "jane.smith@ssagroup.com"
-                    "password": "Password1"
-                }
+        * Response:
+            ```json
+            true
             ```
-        * Response: `HTTP 200`
-        * Response Body: Note ignore permission, roles, groups and organisation
-            ```
-                {
-                    "name": "james.jones@ssagroup.com",
-                    "permissions": [],
-                    "firstName": "Jane",
-                    "lastName": "Smith",
-                    "email": "jane.smith@ssagroup.com",
-                    "password": null,
-                    "roles": [],
-                    "groups": [],
-                    "id": 79,
-                    "organisation": null
-                }
-            ```
+    <br><br>
     1. Delete existing user:
-        * Request: `DELETE http://authentication-service.jx-ssagroup-authentication-service-pr-15.ssagroup.com/api/users/{id}`
-        * Response: `HTTP 204`
-    1. List all users:
-        * Request: `GET http://authentication-service.jx-ssagroup-authentication-service-pr-15.ssagroup.com/api/users`
-        * Response: `HTTP 200`
-        * Response Body: Note ignore permission, roles, groups and organisation
-            ```
-                {
-                    "content": [
-                        {
-                            "name": "jane.smith@ssagroup.com",
-                            "permissions": [],
-                            "firstName": "Jane",
-                            "lastName": "Smith",
-                            "email": "jane.smith@ssagroup.com",
-                            "password": null,
-                            "roles": [],
-                            "groups": [],
-                            "id": 79,
-                            "organisation": null
-                        }
-                    ],
-                    "pageable": {
-                        "sort": {
-                            "sorted": false,
-                            "unsorted": true,
-                            "empty": true
-                        },
-                        "pageSize": 20,
-                        "pageNumber": 0,
-                        "offset": 0,
-                        "paged": true,
-                        "unpaged": false
-                    },
-                    "totalPages": 1,
-                    "totalElements": 1,
-                    "last": true,
-                    "first": true,
-                    "sort": {
-                        "sorted": false,
-                        "unsorted": true,
-                        "empty": true
-                    },
-                    "numberOfElements": 1,
-                    "size": 20,
-                    "number": 0,
-                    "empty": false
-                }
-            ```
+        * `DELETE` `https://oreo.rippl3s.com/api/v1/test/users/${id}`
+        * Response:
+        ```json
+
+        ```
+    <br><br>
+    1. Retrieve all existing users:
+        * `GET` `https://oreo.rippl3s.com/api/v1/test/users`
+        * Response:
+        ```json
+        {
+            "data": [ ... ],
+            "links": { ... },
+            "meta": { ... }
+        }
+        ```
+    <br><br>
+    1. Retrieve a single user:
+        * `GET` `https://oreo.rippl3s.com/api/v1/test/users/${id}`
+        * Response:
+        ```json
+        {
+            "data": {
+                "id": 1,
+                "prefixname": "Dr.",
+                "firstname": "Jane",
+                "middlename": "Stark",
+                "lastname": "Smith",
+                "suffixname": null,
+                "username": "janesmith",
+                "email": "jane@ssagroup.com",
+                "photo": "data:image/png;base64,<hash>",
+                "email_verified_at": null,
+                "created_at": "2020-10-08 09:36:29",
+                "updated_at": "2020-10-08 10:15:21",
+                "deleted_at": null,
+                "avatar": "data:image/png;base64,<hash>",
+                "birthday": null,
+                "created": "1 hour ago",
+                "deleted": "",
+                "displayname": "Jane S. Smith",
+                "modified": "53 minutes ago",
+                "role": "Examinee"
+            }
+        }
+        ```
+
+
+    
 
 <br>
 
@@ -230,4 +308,12 @@ For any questions regarding the exam please send inquiry to <a href="mailto:elle
 
 <br>
 <hr>
-<br>
+<br> 
+
+<p align="center">
+:four_leaf_clover:  Good luck!
+</p>
+
+<p align="center">
+<small>Prepared for SSA Academy Software and Web Developer Applicants only.<br>Do not reproduce document elsewhere.</small>
+</p>
