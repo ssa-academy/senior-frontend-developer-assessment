@@ -191,7 +191,7 @@ For any questions regarding the exam please send inquiry to <a href="mailto:jona
 
 1. Implement the following API:
     1. Create new users:
-        * `POST` `https://oreo.rippl3s.com/api/v1/test/users`
+        * `POST` `https://oreo.rippl3s.com/api/v1/user/tests`
         * Request:
             ```json
             {
@@ -231,7 +231,7 @@ For any questions regarding the exam please send inquiry to <a href="mailto:jona
             ```
     <br><br>
     1. Update existing users:
-        * `PUT` `https://oreo.rippl3s.com/api/v1/test/users/${id}`
+        * `PUT` `https://oreo.rippl3s.com/api/v1/user/tests/${id}`
         * Request:
             ```json
             {
@@ -249,14 +249,14 @@ For any questions regarding the exam please send inquiry to <a href="mailto:jona
             ```
     <br><br>
     1. Delete existing user:
-        * `DELETE` `https://oreo.rippl3s.com/api/v1/test/users/${id}`
+        * `DELETE` `https://oreo.rippl3s.com/api/v1/user/tests/${id}`
         * Response:
         ```json
 
         ```
     <br><br>
     1. Retrieve all existing users:
-        * `GET` `https://oreo.rippl3s.com/api/v1/test/users`
+        * `GET` `https://oreo.rippl3s.com/api/v1/user/tests`
         * Response:
         ```json
         {
@@ -267,7 +267,7 @@ For any questions regarding the exam please send inquiry to <a href="mailto:jona
         ```
     <br><br>
     1. Retrieve a single user:
-        * `GET` `https://oreo.rippl3s.com/api/v1/test/users/${id}`
+        * `GET` `https://oreo.rippl3s.com/api/v1/user/tests/${id}`
         * Response:
         ```json
         {
